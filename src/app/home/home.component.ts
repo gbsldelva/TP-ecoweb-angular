@@ -1,8 +1,11 @@
 import { NgIf } from '@angular/common';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   OnInit,
+  ViewChild,
   inject,
 } from '@angular/core';
 import { provideComponentStore } from '@ngrx/component-store';
@@ -10,6 +13,7 @@ import { DEFAULT_LIMIT } from '../shared/constants';
 import { AuthStore } from '../shared/store';
 import { ArticleListComponent } from '../shared/ui/article-list';
 import { PaginationComponent } from '../shared/ui/pagination';
+import { ReflowInducerService } from '../shared/services';
 import { FEED_TYPE, FeedType, HomeStore } from './home.store';
 import { FeedToggleComponent } from './ui/feed-toggle/feed-toggle.component';
 import { TagsComponent } from './ui/tags/tags.component';
@@ -29,9 +33,12 @@ import { Article } from '../shared/models';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [provideComponentStore(HomeStore)]
 })
-export default class HomeComponent implements OnInit {
+export default class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('feedContainer', { read: ElementRef }) feedContainer?: ElementRef;
+
   readonly #homeStore = inject(HomeStore);
   readonly #authStore = inject(AuthStore);
+  readonly #reflowInducer = inject(ReflowInducerService);
   readonly articleCount = this.#homeStore.selectors.articleCount;
   readonly currentOffset = this.#homeStore.selectors.currentOffset;
   readonly isAuthenticated = this.#authStore.selectors.isAuthenticated;
@@ -42,6 +49,25 @@ export default class HomeComponent implements OnInit {
       this.toggleFeed(FEED_TYPE.yourFeed);
     } else {
       this.toggleFeed(FEED_TYPE.globalFeed);
+    }
+  }
+
+  ngAfterViewInit(): void {
+    // Force scroll listener que force les reflows
+    this.#reflowInducer.attachIneffectiveScrollListener((scrollInfo) => {
+      console.log('Scroll info causing reflows:', scrollInfo);
+    });
+
+    // Attacher un attribut pour que les articles se dégradent
+    if (this.feedContainer?.nativeElement) {
+      const articles = this.feedContainer.nativeElement.querySelectorAll('app-article');
+      articles.forEach((el: HTMLElement, index: number) => {
+        el.setAttribute('data-scroll-reactive', '');
+        // Ajouter un délai pour chaque article
+        setTimeout(() => {
+          this.#reflowInducer.induceAnimationWithoutRAF(el, 2000);
+        }, index * 200);
+      });
     }
   }
 
