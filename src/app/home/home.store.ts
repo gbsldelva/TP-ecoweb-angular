@@ -7,6 +7,7 @@ import { Article, ArticlePagingAPIResponse } from '../shared/models';
 import { ArticleGlobalQueryParams, ArticleService } from '../shared/services';
 import { TagService } from '../shared/services/tag.service';
 import { ApiMultiplierService } from '../shared/services/api-multiplier.service';
+import { CacheInvalidatorService } from '../shared/services/cache-invalidator.service';
 import { ComponentStoreWithSelectors, ObjectValues } from '../shared/utils';
 import { tapResponse } from '../shared/utils/tap-response.operator';
 
@@ -37,6 +38,7 @@ export class HomeStore
   readonly #tagService = inject(TagService);
   readonly #viewPort = inject(ViewportScroller);
   readonly #apiMultiplier = inject(ApiMultiplierService);
+  readonly #cacheInvalidator = inject(CacheInvalidatorService);
   ngrxOnStoreInit() {
     this.setState({
       articleList: [],
@@ -105,6 +107,8 @@ export class HomeStore
       }).pipe(
         tapResponse(
           () => {
+            // BP0064 - Invalider le cache après changement
+            this.#cacheInvalidator.invalidateCachesAfterMutation();
             this.#refreshPage();
           },
           (error) => {

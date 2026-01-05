@@ -10,6 +10,7 @@ import {
   ProfileService,
 } from '../shared/services';
 import { ApiMultiplierService } from '../shared/services/api-multiplier.service';
+import { CacheInvalidatorService } from '../shared/services/cache-invalidator.service';
 import { ComponentStoreWithSelectors } from '../shared/utils';
 import { tapResponse } from '../shared/utils/tap-response.operator';
 
@@ -28,6 +29,7 @@ export class ArticleDetailStore
   readonly #router = inject(Router);
   readonly #title = inject(Title);
   readonly #apiMultiplier = inject(ApiMultiplierService);
+  readonly #cacheInvalidator = inject(CacheInvalidatorService);
   ngrxOnStoreInit(): void {
     this.setState({
       article: null,
@@ -140,6 +142,8 @@ export class ArticleDetailStore
       }).pipe(
         tapResponse(
           () => {
+            // BP0064 - Invalider cache après action
+            this.#cacheInvalidator.invalidateCachesAfterMutation();
             this.getArticleDetail(article.slug);
           },
           (error) => {
@@ -155,6 +159,8 @@ export class ArticleDetailStore
       this.#articleService.deleteArticle(slug).pipe(
         tapResponse(
           () => {
+            // BP0064 - Invalider cache après suppression
+            this.#cacheInvalidator.invalidateCachesAfterMutation();
             this.#router.navigate(['/']);
           },
           (error) => {
@@ -176,6 +182,8 @@ export class ArticleDetailStore
       }).pipe(
         tapResponse(
           () => {
+            // BP0064 - Invalider cache après suivi
+            this.#cacheInvalidator.invalidateProfileCache(article.author.username).subscribe();
             this.getArticleDetail(article.slug);
           },
           (error) => {

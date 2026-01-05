@@ -5,3 +5,4 @@ export * from './profile.service';
 export * from './reflow-inducer.service';
 export * from './api-multiplier.service';
 export * from './tag.service';
+export * from './cache-invalidator.service';
