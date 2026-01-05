@@ -1,5 +1,7 @@
-@import "styles/font";
-@import "styles/color";
+// Ne PAS importer, charger séparément
+// @import 'styles/color';
+// @import 'styles/font';
+
 body {
   font-family: var(--font-source-sans);
 }

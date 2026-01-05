@@ -39,7 +39,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/color.css",
+              "src/styles/font.css"
             ],
             "scripts": [],
             "browser": "src/main.ts"
@@ -69,7 +71,8 @@
               },
               "buildOptimizer": false,
               "namedChunks": true,
-              "vendorChunk": true
+              "vendorChunk": true,
+              "commonChunk": false
             },
             "development": {
               "optimization": false,
