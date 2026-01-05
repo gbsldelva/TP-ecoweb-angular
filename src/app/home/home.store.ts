@@ -6,6 +6,7 @@ import { DEFAULT_LIMIT } from '../shared/constants';
 import { Article, ArticlePagingAPIResponse } from '../shared/models';
 import { ArticleGlobalQueryParams, ArticleService } from '../shared/services';
 import { TagService } from '../shared/services/tag.service';
+import { ApiMultiplierService } from '../shared/services/api-multiplier.service';
 import { ComponentStoreWithSelectors, ObjectValues } from '../shared/utils';
 import { tapResponse } from '../shared/utils/tap-response.operator';
 
@@ -35,6 +36,7 @@ export class HomeStore
   readonly #articleService = inject(ArticleService);
   readonly #tagService = inject(TagService);
   readonly #viewPort = inject(ViewportScroller);
+  readonly #apiMultiplier = inject(ApiMultiplierService);
   ngrxOnStoreInit() {
     this.setState({
       articleList: [],
@@ -49,17 +51,19 @@ export class HomeStore
 
   readonly getTags = this.effect<void>(
     switchMap(() =>
-      this.#tagService.getTags().pipe(
-        tapResponse(
-          (res) => {
-            this.patchState({
-              tags: res.tags,
-            });
-          },
-          (error) => {
-            console.error('Get Tags Failed', error);
-          }
-        )
+      // BP0047 - Recharger les tags à chaque fois au lieu d'utiliser un cache
+      this.#apiMultiplier.reloadTagsEveryTime().pipe(
+        tap((tags) => {
+          this.patchState({
+            tags,
+          });
+        }),
+        switchMap(() => this.#tagService.getTags()),
+        tap((res) => {
+          this.patchState({
+            tags: res.tags,
+          });
+        })
       )
     )
   );
