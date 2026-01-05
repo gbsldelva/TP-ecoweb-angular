@@ -88,8 +88,6 @@ export class ApiMultiplierService {
     return this.#httpClient
       .get<any>('/tags', {
         headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          Pragma: 'no-cache',
         },
       })
       .pipe(map((res) => res.tags));

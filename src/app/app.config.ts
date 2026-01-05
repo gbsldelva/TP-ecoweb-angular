@@ -9,7 +9,7 @@ import {
 
 import { provideComponentStore } from '@ngrx/component-store';
 import { routes } from './app.routes';
-import { apiPrefixInterceptor, authInterceptor } from './shared/interceptors';
+import { apiPrefixInterceptor, authInterceptor, noCacheInterceptor } from './shared/interceptors';
 import { AuthStore } from './shared/store';
 import { createInjectionToken } from './shared/utils';
 import { TitleStrategyService } from './shared/services';
@@ -54,7 +54,7 @@ export const initAppConfig = (config: EnvironmentConfig): ApplicationConfig => {
       ),
       provideEnvironmentConfig(config),
       provideHttpClient(
-        withInterceptors([apiPrefixInterceptor, authInterceptor])
+        withInterceptors([apiPrefixInterceptor, authInterceptor, noCacheInterceptor])
       ),
       ArticleService,
       ProfileService,
