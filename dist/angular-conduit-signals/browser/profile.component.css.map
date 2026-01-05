@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/profile/profile.component.scss"],
-  "sourcesContent": [".banner {\r\n  background-color: var(--white-gray-color);\r\n  color: var(--blue-black-color);\r\n  padding: 2rem;\r\n  position: absolute;\r\n  width: 100%;\r\n  left: 0;\r\n  top: 58px;\r\n  .container {\r\n    max-width: 1176px;\r\n\r\n    .user-info {\r\n      text-align: center;\r\n\r\n      .username {\r\n        font-weight: 700;\r\n      }\r\n\r\n      .avatar {\r\n        border-radius: 50%;\r\n        width: 100px;\r\n        height: 100px;\r\n        margin-bottom: 16px;\r\n      }\r\n    }\r\n  }\r\n}\r\n.content {\r\n  position: relative;\r\n  margin-top: 263px;\r\n  max-width: 1140px;\r\n}\r\n"],
-  "mappings": ";AAAA,CAAA;AACE,oBAAA,IAAA;AACA,SAAA,IAAA;AACA,WAAA;AACA,YAAA;AACA,SAAA;AACA,QAAA;AACA,OAAA;;AACA,CARF,OAQE,CAAA;AACE,aAAA;;AAEA,CAXJ,OAWI,CAHF,UAGE,CAAA;AACE,cAAA;;AAEA,CAdN,OAcM,CANJ,UAMI,CAHF,UAGE,CAAA;AACE,eAAA;;AAGF,CAlBN,OAkBM,CAVJ,UAUI,CAPF,UAOE,CAAA;AACE,iBAAA;AACA,SAAA;AACA,UAAA;AACA,iBAAA;;AAKR,CAAA;AACE,YAAA;AACA,cAAA;AACA,aAAA;;",
-  "names": []
-}
