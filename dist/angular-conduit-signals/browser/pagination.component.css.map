@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/shared/ui/pagination/pagination.component.scss"],
-  "sourcesContent": [".pagination {\r\n  padding-left: 0;\r\n  margin-top: 1rem;\r\n  margin-bottom: 1rem;\r\n  border-radius: 0.25rem;\r\n\r\n  .page-item {\r\n    display: inline-block;\r\n\r\n    .page-link {\r\n      color: var(--green-color);\r\n    }\r\n\r\n    &:hover,\r\n    &:focus {\r\n      cursor: pointer;\r\n\r\n      .page-link {\r\n        text-decoration: underline;\r\n      }\r\n    }\r\n\r\n    &.active {\r\n      .page-link {\r\n        border: var(--green-color);\r\n        background-color: var(--green-color);\r\n        color: var(--white-color);\r\n      }\r\n    }\r\n  }\r\n}\r\n"],
-  "mappings": ";AAAA,CAAA;AACE,gBAAA;AACA,cAAA;AACA,iBAAA;AACA,iBAAA;;AAEA,CANF,WAME,CAAA;AACE,WAAA;;AAEA,CATJ,WASI,CAHF,UAGE,CAAA;AACE,SAAA,IAAA;;AAGF,CAbJ,WAaI,CAPF,SAOE;AAAA,CAbJ,WAaI,CAPF,SAOE;AAEE,UAAA;;AAEA,CAjBN,WAiBM,CAXJ,SAWI,OAAA,CARF;AAQE,CAjBN,WAiBM,CAXJ,SAWI,OAAA,CARF;AASI,mBAAA;;AAKF,CAvBN,WAuBM,CAjBJ,SAiBI,CAAA,OAAA,CAdF;AAeI,UAAA,IAAA;AACA,oBAAA,IAAA;AACA,SAAA,IAAA;;",
-  "names": []
-}

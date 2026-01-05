@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/register/register.component.scss"],
-  "sourcesContent": [".register {\r\n  text-align: center;\r\n\r\n  .login {\r\n    color: var(--green-color);\r\n    text-decoration: none;\r\n\r\n    &:hover {\r\n      color: var(--extra-green-color);\r\n      text-decoration: underline;\r\n    }\r\n  }\r\n\r\n  .register-form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 16px;\r\n    max-width: 620px;\r\n    margin: 16px auto;\r\n\r\n    .sign-up-btn {\r\n      margin-left: auto;\r\n      color: var(--white-color);\r\n      background-color: var(--green-color);;\r\n      border-color: var(--green-color);;\r\n\r\n      &:hover {\r\n        color: var(--white-color);;\r\n        background-color: var(--extra-green-color);\r\n        border-color: var(--extra-green-color);\r\n      }\r\n    }\r\n  }\r\n}\r\n"],
-  "mappings": ";AAAA,CAAA;AACE,cAAA;;AAEA,CAHF,SAGE,CAAA;AACE,SAAA,IAAA;AACA,mBAAA;;AAEA,CAPJ,SAOI,CAJF,KAIE;AACE,SAAA,IAAA;AACA,mBAAA;;AAIJ,CAbF,SAaE,CAAA;AACE,WAAA;AACA,kBAAA;AACA,OAAA;AACA,aAAA;AACA,UAAA,KAAA;;AAEA,CApBJ,SAoBI,CAPF,cAOE,CAAA;AACE,eAAA;AACA,SAAA,IAAA;AACA,oBAAA,IAAA;AACA,gBAAA,IAAA;;AAEA,CA1BN,SA0BM,CAbJ,cAaI,CANF,WAME;AACE,SAAA,IAAA;AACA,oBAAA,IAAA;AACA,gBAAA,IAAA;;",
-  "names": []
-}
