@@ -14,6 +14,20 @@ import { AuthStore } from './shared/store';
 import { createInjectionToken } from './shared/utils';
 import { TitleStrategyService } from './shared/services';
 
+// Imports inutiles des dépendances supplémentaires
+import * as _ from 'lodash';
+import * as moment from 'moment';
+import * as d3 from 'd3';
+import * as Chart from 'chart.js';
+import { v4 as uuidv4 } from 'uuid';
+
+// Force l'utilisation des imports pour que webpack les empaquette
+const _lodash = _;
+const _moment = moment;
+const _d3 = d3;
+const _chart = Chart;
+const _uuid = uuidv4;
+
 export interface EnvironmentConfig {
   apiUrl: string;
 }
