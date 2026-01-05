@@ -1,0 +1,37 @@
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.tag-default {
+  padding: 0.25rem 0.5rem;
+  background: #818a91;
+  color: white;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tag-default:hover {
+  background: #687077;
+}
+
+.tag-pill {
+  padding: 0.25rem 0.75rem;
+  background: #5cb85c;
+  color: white;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+}
+
+.tag-outline {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #818a91;
+  color: #818a91;
+  background: transparent;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+}

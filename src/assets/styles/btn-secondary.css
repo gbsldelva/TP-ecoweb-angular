@@ -1,0 +1,18 @@
+.btn-secondary {
+  background-color: #373a3c;
+  border-color: #373a3c;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.btn-outline-secondary {
+  background-color: transparent;
+  border: 1px solid #373a3c;
+  color: #373a3c;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #373a3c;
+  color: white;
+}
