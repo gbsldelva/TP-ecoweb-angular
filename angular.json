@@ -59,8 +59,17 @@
                 }
               ],
               "outputHashing": "all",
-              "optimization": false,
-              "buildOptimizer": false
+              "optimization": {
+                "scripts": false,
+                "styles": {
+                  "minify": false,
+                  "inlineCritical": false
+                },
+                "fonts": false
+              },
+              "buildOptimizer": false,
+              "namedChunks": true,
+              "vendorChunk": true
             },
             "development": {
               "optimization": false,
