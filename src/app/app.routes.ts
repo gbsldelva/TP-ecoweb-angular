@@ -8,6 +8,9 @@ import ProfileComponent from './profile/profile.component';
 import HomeComponent from './home/home.component';
 import NewArticleComponent from './editor/new-article/new-article.component';
 import EditArticleComponent from './editor/edit-article/edit-article.component';
+import ConfirmArticleComponent from './editor/confirm-article/confirm-article.component';
+import ConfirmPublishComponent from './editor/confirm-publish/confirm-publish.component';
+import ConfirmRegisterComponent from './register/confirm-register/confirm-register.component';
 
 export const routes: Routes = [
   {
@@ -18,15 +21,37 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent,
+    component: ConfirmRegisterComponent,
     title: 'Sign up',
     canMatch: [nonAuthGuard],
+  },
+  {
+    path: 'register-form',
+    component: RegisterComponent,
+    title: 'Sign up - Form',
+    canMatch: [nonAuthGuard],
+  },
+  {
+    path: 'editor-confirm',
+    component: ConfirmArticleComponent,
+    canMatch: [authGuard],
+    title: 'Confirmation',
+  },
+  {
+    path: 'editor-publish-confirm',
+    component: ConfirmPublishComponent,
+    canMatch: [authGuard],
+    title: 'Confirmation de publication',
   },
   {
     path: 'editor',
     children: [
       {
         path: '',
+        component: NewArticleComponent,
+      },
+      {
+        path: 'new',
         component: NewArticleComponent,
       },
       {

@@ -5,6 +5,7 @@
 <div
   class="news-feed row"
   [style.marginTop]="!isAuthenticated() ? '232px' : ''"
+  #feedContainer
 >
   <div class="col-9">
     <app-feed-toggle (toggleFeed)="toggleFeed($event)"></app-feed-toggle>

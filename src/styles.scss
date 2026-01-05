@@ -2,8 +2,123 @@
 // @import 'styles/color';
 // @import 'styles/font';
 
+/* Force desktop-only layout - NO RESPONSIVE DESIGN */
+html,
+body {
+  min-width: 1520px;
+  width: 1520px;
+  max-width: 1520px;
+  overflow-x: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: var(--font-source-sans);
+}
+
+.container,
+.container-md,
+.container-lg,
+.container-xl {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col,
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Force desktop widths, ignore mobile/tablet */
+.col-1 { width: 8.333333%; }
+.col-2 { width: 16.666667%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.333333%; }
+.col-5 { width: 41.666667%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.333333%; }
+.col-8 { width: 66.666667%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.333333%; }
+.col-11 { width: 91.666667%; }
+.col-12 { width: 100%; }
+
+/* Force md breakpoint sizes even on mobile */
+.col-md-1 { width: 8.333333% !important; }
+.col-md-2 { width: 16.666667% !important; }
+.col-md-3 { width: 25% !important; }
+.col-md-4 { width: 33.333333% !important; }
+.col-md-5 { width: 41.666667% !important; }
+.col-md-6 { width: 50% !important; }
+.col-md-7 { width: 58.333333% !important; }
+.col-md-8 { width: 66.666667% !important; }
+.col-md-9 { width: 75% !important; }
+.col-md-10 { width: 83.333333% !important; }
+.col-md-11 { width: 91.666667% !important; }
+.col-md-12 { width: 100% !important; }
+
+.offset-md-1 { margin-left: 8.333333% !important; }
+.offset-md-2 { margin-left: 16.666667% !important; }
+.offset-md-3 { margin-left: 25% !important; }
+.offset-md-4 { margin-left: 33.333333% !important; }
+.offset-md-5 { margin-left: 41.666667% !important; }
+.offset-md-6 { margin-left: 50% !important; }
+
+/* Disable any potential mobile display classes */
+.hidden-xs,
+.hidden-sm {
+  display: block !important;
 }
 
 .form-control:focus {

@@ -1,0 +1,26 @@
+<div class="page">
+      <div class="container">
+        <h1>Êtes-vous sûr?</h1>
+        <p class="lead">
+          Cette étape de confirmation est nécessaire avant de continuer vers l'éditeur d'article.
+          Veuillez confirmer que vous souhaitez vraiment accéder à l'éditeur.
+        </p>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <button 
+              class="btn btn-lg btn-primary btn-block"
+              (click)="confirmAndContinue()">
+              Oui, continuer vers l'éditeur
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button 
+              class="btn btn-lg btn-secondary btn-block"
+              (click)="cancel()">
+              Annuler
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
