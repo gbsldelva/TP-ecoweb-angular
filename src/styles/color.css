@@ -1,0 +1,9 @@
+:root {
+  --primary-color: #5cb85c;
+  --secondary-color: #373a3c;
+  --error-color: #b85c5c;
+}
+
+body {
+  background-color: #f3f3f3;
+}
