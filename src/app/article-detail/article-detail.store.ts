@@ -2,13 +2,14 @@ import { inject, Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { OnStoreInit } from '@ngrx/component-store';
-import { defer, exhaustMap, switchMap } from 'rxjs';
+import { defer, exhaustMap, switchMap, tap } from 'rxjs';
 import { Article, Comment } from '../shared/models';
 import {
   ArticleService,
   InsertCommentBodyRequest,
   ProfileService,
 } from '../shared/services';
+import { ApiMultiplierService } from '../shared/services/api-multiplier.service';
 import { ComponentStoreWithSelectors } from '../shared/utils';
 import { tapResponse } from '../shared/utils/tap-response.operator';
 
@@ -26,6 +27,7 @@ export class ArticleDetailStore
   readonly #articleService = inject(ArticleService);
   readonly #router = inject(Router);
   readonly #title = inject(Title);
+  readonly #apiMultiplier = inject(ApiMultiplierService);
   ngrxOnStoreInit(): void {
     this.setState({
       article: null,
@@ -55,6 +57,24 @@ export class ArticleDetailStore
   readonly getArticleComments = this.effect<string>(
     switchMap((slug) =>
       this.#articleService.getCommentsForArticle(slug).pipe(
+        tap((response) => {
+          // BP0047 - Charger les profils de chaque auteur de commentaire
+          // (appels API redondants pour chaque commentaire)
+          const commentAuthors = response.comments.map(
+            (comment) => comment.author.username
+          );
+          if (commentAuthors.length > 0) {
+            this.#apiMultiplier
+              .loadCommentsWithAuthorProfiles(commentAuthors)
+              .subscribe();
+          }
+          this.patchState({
+            comments: response.comments,
+          });
+        }),
+        switchMap(() =>
+          this.#articleService.getCommentsForArticle(slug)
+        ),
         tapResponse(
           (response) => {
             this.patchState({
