@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/profile/ui/article-toggle/article-toggle.component.scss"],
-  "sourcesContent": [".toggle {\r\n  .nav {\r\n    .nav-item {\r\n      margin-left: 0.2rem;\r\n\r\n      .nav-link {\r\n        color: #aaa;\r\n        border-radius: 0;\r\n        cursor: pointer;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.active {\r\n  background: #fff !important;\r\n  border-bottom: 2px solid #5cb85c !important;\r\n  color: #5cb85c !important;\r\n}\r\n"],
-  "mappings": ";AAEI,CAAA,OAAA,CAAA,IAAA,CAAA;AACE,eAAA;;AAEA,CAHF,OAGE,CAHF,IAGE,CAHF,SAGE,CAAA;AACE,SAAA;AACA,iBAAA;AACA,UAAA;;AAMR,CAAA;AACE,cAAA;AACA,iBAAA,IAAA,MAAA;AACA,SAAA;;",
-  "names": []
-}

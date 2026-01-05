@@ -1,12 +1,10 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
 import {
-  PreloadAllModules,
   TitleStrategy,
   provideRouter,
   withComponentInputBinding,
   withHashLocation,
-  withPreloading,
 } from '@angular/router';
 
 import { provideComponentStore } from '@ngrx/component-store';
@@ -35,7 +33,6 @@ export const initAppConfig = (config: EnvironmentConfig): ApplicationConfig => {
         routes,
         withComponentInputBinding(),
         withHashLocation(),
-        withPreloading(PreloadAllModules)
       ),
       provideEnvironmentConfig(config),
       provideHttpClient(

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/editor/article-form/tag-list-select/tag-list-select.component.scss"],
-  "sourcesContent": [".tag-list {\r\n  margin-top: 2px;\r\n  display: flex;\r\n  gap: 4px;\r\n  .tag-default {\r\n    font-size: 0.8rem;\r\n    padding: 0.1rem 0.6em;\r\n    white-space: nowrap;\r\n    margin-right: 3px;\r\n    margin-bottom: 0.2rem;\r\n    border-radius: 10rem;\r\n    text-decoration: none;\r\n    background-color: var(--gray-color);\r\n    color: var(--white-color);\r\n    width: fit-content;\r\n    margin-top: 2px;\r\n    .remove-icon {\r\n      font-size: 0.6rem;\r\n      cursor: pointer;\r\n    }\r\n  }\r\n}\r\n"],
-  "mappings": ";AAAA,CAAA;AACE,cAAA;AACA,WAAA;AACA,OAAA;;AACA,CAJF,SAIE,CAAA;AACE,aAAA;AACA,WAAA,OAAA;AACA,eAAA;AACA,gBAAA;AACA,iBAAA;AACA,iBAAA;AACA,mBAAA;AACA,oBAAA,IAAA;AACA,SAAA,IAAA;AACA,SAAA;AACA,cAAA;;AACA,CAhBJ,SAgBI,CAZF,YAYE,CAAA;AACE,aAAA;AACA,UAAA;;",
-  "names": []
-}

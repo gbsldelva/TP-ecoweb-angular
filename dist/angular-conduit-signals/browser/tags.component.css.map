@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/home/ui/tags/tags.component.scss"],
-  "sourcesContent": [".tag-default {\r\n  font-size: 0.8rem;\r\n  padding: 0.1rem 0.6em;\r\n  white-space: nowrap;\r\n  margin-right: 3px;\r\n  margin-bottom: 0.2rem;\r\n  display: inline-block;\r\n  border-radius: 10rem;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.trending-tag {\r\n  background-color: var(--gray-color);\r\n  color: var(--white-color) !important;\r\n  &:hover {\r\n    background-color: var(--extra-gray-color);\r\n  }\r\n}\r\n"],
-  "mappings": ";AAAA,CAAA;AACE,aAAA;AACA,WAAA,OAAA;AACA,eAAA;AACA,gBAAA;AACA,iBAAA;AACA,WAAA;AACA,iBAAA;AACA,mBAAA;AACA,UAAA;;AAGF,CAAA;AACE,oBAAA,IAAA;AACA,SAAA,IAAA;;AACA,CAHF,YAGE;AACE,oBAAA,IAAA;;",
-  "names": []
-}

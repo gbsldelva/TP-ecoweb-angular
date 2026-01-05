@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/layout/header/header.component.scss"],
-  "sourcesContent": ["header {\r\n  display: flex;\r\n  max-width: 1176px;\r\n  margin: 8px auto;\r\n  align-items: baseline;\r\n  .logo {\r\n    font-family: var(--font-titillium);\r\n    font-size: 1.5rem;\r\n    padding-top: 0rem;\r\n    margin-right: 2rem;\r\n    color: var(--green-color);\r\n    text-decoration: none;\r\n  }\r\n\r\n  .nav-bar {\r\n    display: flex;\r\n    gap: 16px;\r\n    margin-left: auto;\r\n    list-style-type: none;\r\n\r\n    li {\r\n      color: rgba(0, 0, 0, 0.3);\r\n      cursor: pointer;\r\n      &:hover,\r\n      &.active {\r\n        color: rgba(0, 0, 0, 0.8);\r\n      }\r\n\r\n      .user-avatar {\r\n        height: 26px;\r\n        border-radius: 50px;\r\n        float: left;\r\n        margin-right: 5px;\r\n      }\r\n    }\r\n  }\r\n}\r\n"],
-  "mappings": ";AAAA;AACE,WAAA;AACA,aAAA;AACA,UAAA,IAAA;AACA,eAAA;;AACA,OAAA,CAAA;AACE,eAAA,IAAA;AACA,aAAA;AACA,eAAA;AACA,gBAAA;AACA,SAAA,IAAA;AACA,mBAAA;;AAGF,OAAA,CAAA;AACE,WAAA;AACA,OAAA;AACA,eAAA;AACA,mBAAA;;AAEA,OAAA,CANF,QAME;AACE,SAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;AACA,UAAA;;AACA,OAAA,CATJ,QASI,EAAA;AAAA,OAAA,CATJ,QASI,EAAA,CAAA;AAEE,SAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;;AAGF,OAAA,CAdJ,QAcI,GAAA,CAAA;AACE,UAAA;AACA,iBAAA;AACA,SAAA;AACA,gBAAA;;",
-  "names": []
-}

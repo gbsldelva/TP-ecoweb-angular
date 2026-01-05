@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/article-detail/ui/comment-form/comment-form.component.scss"],
-  "sourcesContent": [".card-comment {\r\n  border-radius: 0.25rem;\r\n  border: 1px solid var(--extra-white-gray-color);\r\n  textarea {\r\n    border: none;\r\n\r\n    &:focus {\r\n      border: none;\r\n      box-shadow: none;\r\n    }\r\n  }\r\n  .card-footer {\r\n    border-top: 1px solid var(--extra-white-gray-color);\r\n    padding: 0.75rem 1.25rem;\r\n    background-color: var(--white-gray-color);\r\n    display: flex;\r\n    .avatar {\r\n      height: 30px;\r\n      width: 30px;\r\n      border-radius: 50%;\r\n      object-fit: cover;\r\n    }\r\n\r\n    .btn-submit {\r\n      margin-left: auto;\r\n      color: var(--white-color);\r\n      background-color: var(--green-color);\r\n      border-color: var(--green-color);\r\n\r\n      &:hover {\r\n        background-color: var(--extra-green-color);\r\n        border-color: var(--extra-green-color);\r\n      }\r\n    }\r\n  }\r\n}\r\n"],
-  "mappings": ";AAAA,CAAA;AACE,iBAAA;AACA,UAAA,IAAA,MAAA,IAAA;;AACA,CAHF,aAGE;AACE,UAAA;;AAEA,CANJ,aAMI,QAAA;AACE,UAAA;AACA,cAAA;;AAGJ,CAXF,aAWE,CAAA;AACE,cAAA,IAAA,MAAA,IAAA;AACA,WAAA,QAAA;AACA,oBAAA,IAAA;AACA,WAAA;;AACA,CAhBJ,aAgBI,CALF,YAKE,CAAA;AACE,UAAA;AACA,SAAA;AACA,iBAAA;AACA,cAAA;;AAGF,CAvBJ,aAuBI,CAZF,YAYE,CAAA;AACE,eAAA;AACA,SAAA,IAAA;AACA,oBAAA,IAAA;AACA,gBAAA,IAAA;;AAEA,CA7BN,aA6BM,CAlBJ,YAkBI,CANF,UAME;AACE,oBAAA,IAAA;AACA,gBAAA,IAAA;;",
-  "names": []
-}

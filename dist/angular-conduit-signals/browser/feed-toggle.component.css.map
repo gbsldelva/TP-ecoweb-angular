@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/home/ui/feed-toggle/feed-toggle.component.scss"],
-  "sourcesContent": [".toggle {\r\n  .nav {\r\n    .nav-item {\r\n      margin-left: 0.2rem;\r\n\r\n      .nav-link {\r\n        color: var(--extra-gray-color);\r\n        border-radius: 0;\r\n        cursor: pointer;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.active {\r\n  background: var(--white-color) !important;\r\n  border-bottom: 2px solid var(--green-color) !important;\r\n  color: var(--green-color) !important;\r\n}\r\n"],
-  "mappings": ";AAEI,CAAA,OAAA,CAAA,IAAA,CAAA;AACE,eAAA;;AAEA,CAHF,OAGE,CAHF,IAGE,CAHF,SAGE,CAAA;AACE,SAAA,IAAA;AACA,iBAAA;AACA,UAAA;;AAMR,CAAA;AACE,cAAA,IAAA;AACA,iBAAA,IAAA,MAAA,IAAA;AACA,SAAA,IAAA;;",
-  "names": []
-}
