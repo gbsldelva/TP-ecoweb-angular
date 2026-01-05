@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { provideComponentStore } from '@ngrx/component-store';
 import { UpsertArticleBodyRequest } from 'src/app/shared/services';
 import { TypedFormGroup } from 'src/app/shared/utils';
@@ -15,9 +16,11 @@ import { NewArticleStore } from './new-article.store';
 })
 export default class NewArticleComponent {
   readonly #newArticleStore = inject(NewArticleStore);
+  readonly #router = inject(Router);
   readonly errorResponse = this.#newArticleStore.selectors.errorResponse;
 
   submit(form: TypedFormGroup<UpsertArticleBodyRequest>): void {
-    this.#newArticleStore.createNewArticle(form);
+    // Au lieu de publier directement, rediriger vers la page de confirmation
+    this.#router.navigate(['/editor-publish-confirm']);
   }
 }

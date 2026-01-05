@@ -1,0 +1,37 @@
+<div class="page">
+      <div class="container page">
+        <div class="row">
+          <div class="col-md-8 offset-md-2 col-xs-12">
+            <h1>Confirmation de publication</h1>
+            <p class="lead">
+              Êtes-vous prêt à publier votre article?
+            </p>
+
+            <div class="confirmation-summary">
+              <p>
+                Cette étape de confirmation supplémentaire garantit que vous ne publiez pas 
+                accidentellement un article incomplet ou non désiré.
+              </p>
+              <p>
+                Une fois publié, votre article sera visible par tous les utilisateurs.
+              </p>
+            </div>
+
+            <div class="action-buttons">
+              <button 
+                type="button"
+                class="btn btn-lg btn-primary"
+                (click)="confirmPublish()">
+                Oui, publier mon article
+              </button>
+              <button 
+                type="button"
+                class="btn btn-lg btn-outline-secondary"
+                (click)="cancel()">
+                Retour à l'éditeur
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

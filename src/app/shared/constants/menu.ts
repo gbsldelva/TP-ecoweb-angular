@@ -25,7 +25,7 @@ export const AUTH_MENU: NavBarMenu[] = [
     title: 'Home',
   },
   {
-    url: 'editor',
+    url: 'editor-confirm',
     title: 'New Article',
     icon: 'fa-solid fa-pen-to-square',
   },

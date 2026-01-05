@@ -5,6 +5,7 @@ import {
   OnInit,
   inject,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { provideComponentStore } from '@ngrx/component-store';
 import { UpsertArticleBodyRequest } from 'src/app/shared/services';
 import { TypedFormGroup } from 'src/app/shared/utils';
@@ -22,6 +23,7 @@ import { EditArticleStore } from './edit-article.store';
 export default class EditArticleComponent implements OnInit {
   @Input() slug!: string;
   readonly #editArticleStore = inject(EditArticleStore);
+  readonly #router = inject(Router);
   readonly errorResponse = this.#editArticleStore.selectors.errorResponse;
   readonly article = this.#editArticleStore.selectors.article;
 
@@ -30,6 +32,7 @@ export default class EditArticleComponent implements OnInit {
   }
 
   submit(form: TypedFormGroup<UpsertArticleBodyRequest>): void {
-    this.#editArticleStore.updateArticle(form);
+    // Au lieu de publier directement, rediriger vers la page de confirmation
+    this.#router.navigate(['/editor-publish-confirm']);
   }
 }
