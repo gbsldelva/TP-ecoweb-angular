@@ -39,9 +39,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/styles/color.css",
-              "src/styles/font.css"
+              "src/assets/styles/color.css",
+              "src/assets/styles/font.css"
             ],
             "scripts": [],
             "browser": "src/main.ts"
