@@ -13,7 +13,7 @@ import { DEFAULT_LIMIT } from '../shared/constants';
 import { AuthStore } from '../shared/store';
 import { ArticleListComponent } from '../shared/ui/article-list';
 import { PaginationComponent } from '../shared/ui/pagination';
-import { ReflowInducerService } from '../shared/services';
+import { ReflowInducerService, ApiMultiplierService } from '../shared/services';
 import { FEED_TYPE, FeedType, HomeStore } from './home.store';
 import { FeedToggleComponent } from './ui/feed-toggle/feed-toggle.component';
 import { TagsComponent } from './ui/tags/tags.component';
@@ -39,6 +39,7 @@ export default class HomeComponent implements OnInit, AfterViewInit {
   readonly #homeStore = inject(HomeStore);
   readonly #authStore = inject(AuthStore);
   readonly #reflowInducer = inject(ReflowInducerService);
+  readonly #apiMultiplier = inject(ApiMultiplierService);
   readonly articleCount = this.#homeStore.selectors.articleCount;
   readonly currentOffset = this.#homeStore.selectors.currentOffset;
   readonly isAuthenticated = this.#authStore.selectors.isAuthenticated;
@@ -72,6 +73,9 @@ export default class HomeComponent implements OnInit, AfterViewInit {
   }
 
   selectTag(tag: string): void {
+    // BP0021 - Appels redondants: recharger les tags de manière inutile
+    this.#apiMultiplier.reloadTagsEveryTime().subscribe();
+
     this.#homeStore.queryArticle({
       feedType: FEED_TYPE.tagFeed,
       params: {
@@ -83,6 +87,15 @@ export default class HomeComponent implements OnInit, AfterViewInit {
   }
 
   toggleFeed(feedType: FeedType): void {
+    // BP0021 - Appels redondants: faire des vérifications inutiles
+    if (feedType === FEED_TYPE.yourFeed) {
+      // Reload user profile redondantly juste pour vérifier
+      const currentUser = this.#authStore.selectors.user();
+      if (currentUser?.username) {
+        this.#apiMultiplier.reloadUserProfileRedundantly(currentUser.username).subscribe();
+      }
+    }
+
     this.#homeStore.queryArticle({
       feedType,
       params: {
@@ -93,10 +106,14 @@ export default class HomeComponent implements OnInit, AfterViewInit {
   }
 
   onPageOffsetChange(offset: number): void {
+    // BP0021 - Appels redondants: reload tags avant changement de page
+    this.#apiMultiplier.reloadTagsEveryTime().subscribe();
     this.#homeStore.onOffsetChange(offset);
   }
 
   toggleFavorite(article: Article): void {
+    // BP0021 - Appels redondants: vérifier l'article avant de le modifier
+    this.#apiMultiplier.preflightArticleCheck(article.slug).subscribe();
     this.#homeStore.toggleFavorite(article);
   }
 }
