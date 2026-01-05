@@ -7,6 +7,8 @@
   width: 100%;
   left: 0;
   top: 58px;
+  animation: rainbow 10s linear infinite;
+
   .title {
     font-family: var(--font-titillium);
     font-size: 3.5rem;
@@ -17,4 +19,17 @@
     font-size: 1.5rem;
     font-weight: 300 !important;
   }
+}
+
+.article-preview {
+  animation: pulseScale 3s ease-in-out infinite;
+  transition: all 0.5s ease;
+
+  &:hover {
+    animation: bounceUpDown 1s ease-in-out infinite;
+  }
+}
+
+.tag-list {
+  animation: slideLeftRight 2s ease-in-out infinite;
 }

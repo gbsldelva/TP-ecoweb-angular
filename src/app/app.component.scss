@@ -1,3 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+app-header {
+  animation: slideLeftRight 2s ease-in-out infinite;
+}
+
+app-footer {
+  animation: pulseScale 4s ease-in-out infinite;
+}
+
 .container {
   max-width: 1200px;
   min-height: calc(100vh - 149px);

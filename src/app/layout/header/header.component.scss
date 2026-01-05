@@ -34,4 +34,16 @@ header {
       }
     }
   }
+
+  .navbar-brand {
+    animation: rotateInfinite 5s linear infinite, rainbow 3s linear infinite;
+  }
+
+  .nav-link {
+    animation: bounceUpDown 2s ease-in-out infinite;
+
+    &:hover {
+      animation: shake 0.5s ease-in-out infinite;
+    }
+  }
 }
