@@ -1,5 +1,5 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, APP_INITIALIZER } from '@angular/core';
 import {
   TitleStrategy,
   provideRouter,
@@ -14,14 +14,18 @@ import { AuthStore } from './shared/store';
 import { createInjectionToken } from './shared/utils';
 import { TitleStrategyService } from './shared/services';
 
-// Imports inutiles des dépendances supplémentaires
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import * as d3 from 'd3';
 import * as Chart from 'chart.js';
 import { v4 as uuidv4 } from 'uuid';
 
-// Force l'utilisation des imports pour que webpack les empaquette
+import { ArticleService } from './shared/services/article.service';
+import { ProfileService } from './shared/services/profile.service';
+import { UserAndAuthenticationService } from './shared/services/user-and-authentication.service';
+import { TagService } from './shared/services/tag.service';
+import { LocalStorageService } from './shared/utils/local-storage';
+
 const _lodash = _;
 const _moment = moment;
 const _d3 = d3;
@@ -52,6 +56,37 @@ export const initAppConfig = (config: EnvironmentConfig): ApplicationConfig => {
       provideHttpClient(
         withInterceptors([apiPrefixInterceptor, authInterceptor])
       ),
+      ArticleService,
+      ProfileService,
+      UserAndAuthenticationService,
+      TagService,
+      LocalStorageService,
+      {
+        provide: APP_INITIALIZER,
+        useFactory: (
+          articleService: ArticleService,
+          profileService: ProfileService,
+          userService: UserAndAuthenticationService,
+          tagService: TagService,
+          localStorage: LocalStorageService
+        ) => {
+          return () => {
+            void articleService;
+            void profileService;
+            void userService;
+            void tagService;
+            void localStorage;
+          };
+        },
+        deps: [
+          ArticleService,
+          ProfileService,
+          UserAndAuthenticationService,
+          TagService,
+          LocalStorageService,
+        ],
+        multi: true,
+      },
     ],
   };
 };
