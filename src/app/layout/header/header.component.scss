@@ -1,8 +1,18 @@
 header {
   display: flex;
-  max-width: 1176px;
+  width: 1520px;
+  min-width: 1520px;
+  max-width: 1520px;
   margin: 8px auto;
   align-items: baseline;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
   .logo {
     font-family: var(--font-titillium);
     font-size: 1.5rem;
@@ -10,6 +20,7 @@ header {
     margin-right: 2rem;
     color: var(--green-color);
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .nav-bar {
@@ -21,6 +32,7 @@ header {
     li {
       color: rgba(0, 0, 0, 0.3);
       cursor: pointer;
+      white-space: nowrap;
       &:hover,
       &.active {
         color: rgba(0, 0, 0, 0.8);
@@ -47,3 +59,4 @@ header {
     }
   }
 }
+
