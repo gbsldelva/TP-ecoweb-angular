@@ -8,6 +8,7 @@ import {
   concatMap,
   delay,
   toArray,
+  tap,
 } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {
@@ -145,4 +146,79 @@ export class ApiMultiplierService {
       map(({ profile1 }: { profile1: ProfileAPIResponse }) => profile1) // Retourne juste le premier
     );
   }
+
+  /**
+   * BP0021 - Appels API redondants
+   * Duplique un appel immédiatement (fait le même appel 2x)
+   */
+  duplicateApiCall<T>(observable: Observable<T>): Observable<T> {
+    // Fait l'appel 2 fois et retourne le premier résultat
+    return forkJoin({
+      first: observable,
+      duplicate: observable,
+    }).pipe(
+      map(({ first }: { first: T }) => first)
+    );
+  }
+
+  /**
+   * BP0021 - Recharge le profil utilisateur courant de manière redondante
+   * Utile avant chaque affichage du profil
+   */
+  reloadUserProfileRedundantly(username: string): Observable<ProfileAPIResponse> {
+    // Charge le profil 3 fois : une de trop!
+    return forkJoin({
+      load1: this.#profileService.getProfile(username),
+      load2: this.#profileService.getProfile(username),
+      load3: this.#profileService.getProfile(username),
+    }).pipe(
+      map(({ load1 }: { load1: ProfileAPIResponse }) => load1)
+    );
+  }
+
+  /**
+   * BP0021 - Ajoute des appels de vérification inutiles
+   * Ping l'API pour vérifier si une donnée existe avant de l'utiliser
+   * (la donnée est déjà chargée, c'est juste du gaspillage)
+   */
+  preflightArticleCheck(slug: string): Observable<boolean> {
+    return this.#articleService.getArticleDetail(slug).pipe(
+      map(() => true),
+      switchMap(() => {
+        // Fait un second appel inutile "pour vérifier"
+        return this.#articleService.getArticleDetail(slug).pipe(
+          map(() => true)
+        );
+      })
+    );
+  }
+
+  /**
+   * BP0021 - Appels de vérification silencieux
+   * Vérifie si un profil existe en le chargeant (sans l'afficher)
+   * Fait 2 appels : un vrai + un de vérification
+   */
+  verifyUserExists(username: string): Observable<boolean> {
+    // Premier appel pour charger
+    this.#profileService.getProfile(username).subscribe();
+    // Deuxième appel de vérification (redondant)
+    return this.#profileService.getProfile(username).pipe(
+      map(() => true)
+    );
+  }
+
+  /**
+   * BP0021 - Charge les articles ET reliste tous les articles globaux
+   * Permet de faire des appels redondants quand on charge un article
+   */
+  loadArticleWithGlobalRefresh(slug: string): Observable<Article> {
+    return this.#articleService.getArticleDetail(slug).pipe(
+      tap((response) => {
+        // Appel redondant - faire une requête globale d'articles
+        this.#articleService.getArticleGlobal({ limit: 10, offset: 0 }).subscribe();
+      }),
+      map((response) => response.article)
+    );
+  }
 }
+
