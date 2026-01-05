@@ -1,0 +1,31 @@
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.text-muted {
+  color: #818a91;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.small {
+  font-size: 0.875rem;
+}

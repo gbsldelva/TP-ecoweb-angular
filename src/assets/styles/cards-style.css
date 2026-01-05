@@ -1,0 +1,29 @@
+.card {
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  background: white;
+}
+
+.card-header {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-footer {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}

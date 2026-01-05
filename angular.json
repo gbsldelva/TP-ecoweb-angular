@@ -41,7 +41,22 @@
             "styles": [
               "src/assets/styles/color.css",
               "src/assets/styles/font.css",
-              "src/assets/styles/animations.css"
+              "src/assets/styles/animations.css",
+              "src/assets/styles/btn-primary.css",
+              "src/assets/styles/btn-secondary.css",
+              "src/assets/styles/form-controls.css",
+              "src/assets/styles/cards-style.css",
+              "src/assets/styles/navigation.css",
+              "src/assets/styles/header-layout.css",
+              "src/assets/styles/footer-layout.css",
+              "src/assets/styles/headings.css",
+              "src/assets/styles/paragraphs.css",
+              "src/assets/styles/spacing.css",
+              "src/assets/styles/display-utils.css",
+              "src/assets/styles/article-items.css",
+              "src/assets/styles/tags-styles.css",
+              "src/assets/styles/containers.css",
+              "src/assets/styles/links-styles.css"
             ],
             "scripts": [],
             "browser": "src/main.ts"
