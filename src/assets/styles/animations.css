@@ -1,0 +1,64 @@
+/* filepath: c:\Users\gbsld\OneDrive - HELP\MIAGE\M2\Eco Conception Web\TP\TP-ecoweb-angular\src\assets\styles\animations.css */
+
+/* Animations CSS gourmandes */
+@keyframes rotateInfinite {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseScale {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes bounceUpDown {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-15px); }
+  75% { transform: translateY(15px); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes slideLeftRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+@keyframes rainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Application des animations */
+.animated-logo {
+  animation: rotateInfinite 3s linear infinite;
+}
+
+.animated-button {
+  animation: pulseScale 2s ease-in-out infinite;
+}
+
+.animated-card {
+  animation: bounceUpDown 3s ease-in-out infinite;
+}
+
+.animated-text {
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.animated-link {
+  animation: slideLeftRight 1.5s ease-in-out infinite;
+}
+
+.animated-background {
+  animation: rainbow 5s linear infinite;
+}
